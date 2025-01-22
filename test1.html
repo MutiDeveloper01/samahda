@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>کانتینر دایره‌ای</title>
+    <style>
+        body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.item {
+    display: none;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 16px;
+}
+
+.item.active {
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item" id="item-0">آیتم 1</div>
+        <div class="item" id="item-1">آیتم 2</div>
+        <div class="item" id="item-2">آیتم 3</div>
+        <div class="item" id="item-3">آیتم 4</div>
+        <div class="item" id="item-4">آیتم 5</div>
+        <div class="item" id="item-5">آیتم 6</div>
+        <div class="item" id="item-6">آیتم 7</div>
+        <div class="item" id="item-7">آیتم 8</div>
+        <div class="item" id="item-8">آیتم 9</div>
+        <div class="item" id="item-9">آیتم 10</div>
+    </div>
+    <button id="prev">قبلی</button>
+    <button id="next">بعدی</button>
+
+    <script type="text/javascript">
+        let currentIndex = 0;
+const items = document.querySelectorAll('.item');
+const totalItems = items.length;
+
+function showItem(index) {
+    items.forEach((item, i) => {
+        item.classList.remove('active');
+        if (i === index) {
+            item.classList.add('active');
+        }
+    });
+}
+
+document.getElementById('prev').addEventListener('click', () => {
+    currentIndex = (currentIndex === 0) ? totalItems - 1 : currentIndex - 1;
+    showItem(currentIndex);
+});
+
+document.getElementById('next').addEventListener('click', () => {
+    currentIndex = (currentIndex === totalItems - 1) ? 0 : currentIndex + 1;
+    showItem(currentIndex);
+});
+
+// نمایش آیتم اول در ابتدا
+showItem(currentIndex);
+    </script>
+</body>
+</html>

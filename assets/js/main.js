@@ -31,3 +31,19 @@ nextBtn.addEventListener('click' , moveNext);
 prevBtn.addEventListener('click'  , movePrev);
 
 updataTeachersItems()
+
+
+
+
+let openToggle  = document.querySelector('.open-toggle');
+let closeToggle = document.getElementById('closetoggle');
+let slideToggle = document.getElementById('slideToggle');
+
+openToggle.addEventListener('click', () =>{
+    slideToggle.style.transform = 'translateX(0%)';
+    slideToggle.style.display = 'block';
+});
+closeToggle.addEventListener('click' , () => {
+    slideToggle.style.transform = 'translateX(500%)';
+    slideToggle.style.display = 'none';
+});
